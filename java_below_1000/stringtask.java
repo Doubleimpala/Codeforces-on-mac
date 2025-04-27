@@ -1,3 +1,4 @@
+package java;
 //Problem 118A
 
 import java.util.*;

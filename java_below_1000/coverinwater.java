@@ -1,3 +1,4 @@
+package java;
 //problem 1900A
 import java.util.*;
 import java.io.*;
