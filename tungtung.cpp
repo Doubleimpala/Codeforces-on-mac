@@ -1,23 +1,53 @@
 #include <iostream>
 
 using namespace std;
-using vi = vector<char>;
 
 void solve() {
-    vi v = vi();
-    vi p = vi();
-    char n;
-    cin >> n;
-    // Your code here
-    while(n != 10) {
-        v.push_back(n);
+    string a;
+    string b;
+    cin >> a; 
+    cin >> b;
+    if(a.length()>b.length()) {
+        cout << "NO\n";
+        return;
     }
-    while(n != 10) {
-        p.push_back(n);
+    int g = 0;
+    for(int i = 0; i < (int)a.length(); i++) {
+        if(a[i] != b[g]){
+            cout << "NO\n";
+            return;
+        }
+        int cap = 2;
+        int min = 1;
+        while(a[i+1] == a[i]){
+            cap += 2;
+            min += 1;
+            i++;
+        }
+        int o = 0;
+        while(o < cap){
+            if(a[i] == b[g]){
+                g++;
+            } else {
+                break;
+            }
+            o++;
+        }
+        if(o < min){
+            cout << "NO\n";
+            return;
+        }
+        if(a[i]==b[g]){
+            cout << "NO\n";
+            return;
+        }
     }
-    for(int i = 0; i < min(v.size(), p.size()); i++) {
-        
+    if(g != b.length()){
+        cout << "NO\n";
+        return;
     }
+    cout << "YES\n";
+    return;
 }
 
 int main() {
